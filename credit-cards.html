@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Credit Cards 2025 | FinanceWise</title>
+    <meta name="description" content="Compare the best credit cards of 2025. Find rewards cards, balance transfer offers, travel perks, and more to fit your financial needs.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="img/favicon.ico">
+    <style>
+        /* Page-specific styles */
+        .card-comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .card-comparison-table th,
+        .card-comparison-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .card-comparison-table th {
+            background-color: var(--light-gray);
+            font-weight: 600;
+        }
+        
+        .card-comparison-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .card-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: var(--accent-color);
+            color: var(--black);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            margin-right: 0.5rem;
+        }
+        
+        .card-tag.best {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .apply-now {
+            font-weight: 600;
+        }
+        
+        .credit-card-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .category-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .filter-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .filter-group select {
+            padding: 0.5rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        @media (max-width: 768px) {
+            .credit-card-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-comparison-table {
+                font-size: 0.875rem;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>FinanceWise</h1>
+                    </a>
+                </div>
+                <div class="header-tools">
+                    <div class="search-form">
+                        <form>
+                            <input type="text" placeholder="Search for financial advice...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline">Log In</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li><a href="credit-cards.html" class="active">Credit Cards</a></li>
+                    <li><a href="personal-banking.html">Personal Banking</a></li>
+                    <li><a href="investing.html">Trading & Investing</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="business-banking.html">Business Banking</a></li>
+                    <li><a href="personal-finance.html">Personal Finance</a></li>
+                    <li><a href="debt-help.html">Getting Out of Debt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Best Credit Cards of 2025</h1>
+            <p>Compare top credit card offers and find the right card for your spending habits and financial goals.</p>
+        </div>
+    </section>
+
+    <!-- Credit Card Categories -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Credit Card Categories</h2>
+            </div>
+            <div class="credit-card-categories">
+                <a href="#rewards" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Rewards Cards</h3>
+                    <p>Earn points, miles, or cash back on everyday purchases</p>
+                </a>
+                <a href="#travel" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel Cards</h3>
+                    <p>Miles, travel insurance, and airport perks for frequent travelers</p>
+                </a>
+                <a href="#cashback" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Cash Back Cards</h3>
+                    <p>Get money back on gas, groceries, dining, and more</p>
+                </a>
+                <a href="#business" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Business Cards</h3>
+                    <p>Manage expenses and earn rewards for your business</p>
+                </a>
+                <a href="#balance-transfer" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Balance Transfer</h3>
+                    <p>Low intro APR offers to help pay down existing debt</p>
+                </a>
+                <a href="#secured" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secured Cards</h3>
+                    <p>Build or rebuild credit with responsible use</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Credit Cards -->
+    <section id="top-cards">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Credit Cards of 2025</h2>
+            </div>
+            
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="card-type">Card Type:</label>
+                    <select id="card-type">
+                        <option value="all">All Cards</option>
+                        <option value="rewards">Rewards</option>
+                        <option value="travel">Travel</option>
+                        <option value="cashback">Cash Back</option>
+                        <option value="business">Business</option>
+                        <option value="balance-transfer">Balance Transfer</option>
+                        <option value="secured">Secured</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="credit-score">Credit Score:</label>
+                    <select id="credit-score">
+                        <option value="all">All Scores</option>
+                        <option value="excellent">Excellent (750+)</option>
+                        <option value="good">Good (700-749)</option>
+                        <option value="fair">Fair (650-699)</option>
+                        <option value="limited">Limited History</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="annual-fee">Annual Fee:</label>
+                    <select id="annual-fee">
+                        <option value="all">All Fees</option>
+                        <option value="no-fee">No Annual Fee</option>
+                        <option value="under-100">Under $100</option>
+                        <option value="over-100">$100 and up</option>
+                    </select>
+                </div>
+            </div>
+            
+            <table class="card-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Credit Card</th>
+                        <th>Annual Fee</th>
+                        <th>Rewards Rate</th>
+                        <th>Welcome Bonus</th>
+                        <th>Intro APR</th>
+                        <th>Regular APR</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="card-tag best">Best Overall</span>
+                            <strong>Premium Rewards Plus Card</strong>
+                            <p>Excellent for everyday spending with premium travel benefits</p>
+                        </td>
+                        <td>$95</td>
+                        <td>3x on dining, 2x on travel, 1x on everything else</td>
+                        <td>60,000 points after spending $4,000 in first 3 months</td>
+                        <td>0% for 12 months on purchases</td>
+                        <td>16.99% - 23.99% Variable</td>
+                        <td><a href="#" class="apply-now">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="card-tag best">Best No Annual Fee</span>
+                            <strong>Cash Back Freedom Card</strong>
+                            <p>Flexible cash back card with rotating 5% categories</p>
+                        </td>
+                        <td>$0</td>
+                        <td>5% on rotating categories (up to $1,500 quarterly), 1% on all else</td>
+                        <td>$200 cash back after spending $500 in first 3 months</td>
+                        <td>0% for 15 months on purchases and balance transfers</td>
+                        <td>15.99% - 24.74% Variable</td>
+                        <td><a href="#" class="apply-now">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="card-tag">Best Travel</span>
+                            <strong>Global Explorer Card</strong>
+                            <p>Premium travel card with airport lounge access and travel credits</p>
+                        </td>
+                        <td>$550</td>
+                        <td>5x on flights, 3x on restaurants and hotels, 1x on everything else</td>
+                        <td>75,000 points after spending $5,000 in first 3 months</td>
+                        <td>None</td>
+                        <td>18.99% - 25.99% Variable</td>
+                        <td><a href="#" class="apply-now">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="card-tag">Best Balance Transfer</span>
+                            <strong>Balance Transfer Pro Card</strong>
+                            <p>Extended 0% APR period for balance transfers</p>
+                        </td>
+                        <td>$0</td>
+                        <td>1.5% cash back on all purchases</td>
+                        <td>None</td>
+                        <td>0% for 21 months on balance transfers</td>
+                        <td>14.99% - 24.99% Variable</td>
+                        <td><a href="#" class="apply-now">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="card-tag">Best Business</span>
+                            <strong>Business Rewards Card</strong>
+                            <p>Expense management tools and business-focused rewards</p>
+                        </td>
+                        <td>$95 (waived first year)</td>
+                        <td>3x on office supplies, 2x on internet/phone, 1x on everything else</td>
+                        <td>50,000 points after spending $5,000 in first 3 months</td>
+                        <td>0% for 12 months on purchases</td>
+                        <td>15.99% - 21.99% Variable</td>
+                        <td><a href="#" class="apply-now">Apply Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="card-tag">Best for Building Credit</span>
+                            <strong>Secured Credit Builder Card</strong>
+                            <p>Helps establish or rebuild credit history</p>
+                        </td>
+                        <td>$0</td>
+                        <td>1% cash back on all purchases</td>
+                        <td>None</td>
+                        <td>None</td>
+                        <td>24.99% Variable</td>
+                        <td><a href="#" class="apply-now">Apply Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="disclaimer">Disclaimer: Credit card offers are subject to change. Information accurate as of April 2025. See issuer websites for current terms and conditions. FinanceWise may receive compensation from card issuers as part of affiliate partnerships.</p>
+        </div>
+    </section>
+
+    <!-- How to Choose Section -->
+    <section class="how-to-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>How to Choose the Right Credit Card</h2>
+            </div>
+            <div class="content-columns">
+                <div class="content-column">
+                    <h3>Consider Your Spending Habits</h3>
+                    <p>Look at where you spend the most money each month. If you dine out frequently, look for cards with high rewards on restaurants. If you travel often, a travel rewards card might be your best bet. For everyday purchases, a flat-rate cash back card could be ideal.</p>
+                    
+                    <h3>Evaluate the Annual Fee</h3>
+                    <p>Cards with annual fees often come with enhanced benefits and higher rewards rates. Calculate whether the rewards and perks you'll earn will outweigh the annual fee. For light spenders, a no-annual-fee card is usually the better choice.</p>
+                    
+                    <h3>Check the APR</h3>
+                    <p>If you carry a balance from month to month, prioritize cards with lower interest rates. Many cards offer 0% intro APR periods, which can be helpful for large purchases or balance transfers.</p>
+                </div>
+                <div class="content-column">
+                    <h3>Research Welcome Bonuses</h3>
+                    <p>Many cards offer substantial sign-up bonuses after meeting a spending threshold. These can provide significant value upfront but make sure you can comfortably meet the spending requirement without going into debt.</p>
+                    
+                    <h3>Assess Your Credit Score</h3>
+                    <p>Your credit score determines which cards you're likely to be approved for. Premium rewards cards typically require good to excellent credit (700+), while secured cards are designed for those with limited or damaged credit.</p>
+                    
+                    <h3>Review Additional Benefits</h3>
+                    <p>Look beyond rewards rates to additional perks like travel insurance, extended warranties, purchase protection, and airport lounge access. These benefits can add substantial value to the right cardholder.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How do credit card rewards work?</h3>
+                    <p>Credit card rewards are incentives offered by card issuers to encourage spending. They come in three main forms: cash back (actual money returned as statement credits or deposits), points (which can be redeemed for various items, gift cards, or travel), and miles (typically used for airline travel). You earn these rewards at different rates depending on the card and spending category.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the difference between APR and interest rate?</h3>
+                    <p>While often used interchangeably, APR (Annual Percentage Rate) and interest rate aren't exactly the same. The interest rate is the percentage cost of borrowing the principal amount, while APR includes both the interest rate and certain fees, giving you a more comprehensive view of the total cost of borrowing. For credit cards, the APR is usually what matters most.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How many credit cards should I have?</h3>
+                    <p>There's no one-size-fits-all answer. For some, a single card is sufficient, while others may benefit from multiple cards for different spending categories. What's important is that you can manage all your cards responsibly, pay bills on time, and keep track of your accounts. Generally, 2-3 strategically chosen cards can maximize rewards without becoming overwhelming.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Will applying for a credit card hurt my credit score?</h3>
+                    <p>Applying for a credit card generates a hard inquiry on your credit report, which typically lowers your score by a few points temporarily. However, this effect is usually minor and short-lived. More significant factors affecting your score include payment history and credit utilization. If you're applying for multiple cards, space out applications over several months to minimize the impact.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What should I do if my credit card application is declined?</h3>
+                    <p>First, request the specific reason for the denial, which issuers are legally required to provide. Common reasons include low credit score, high debt-to-income ratio, or too many recent credit inquiries. Address these issues before reapplying. Consider starting with a secured card or becoming an authorized user on someone else's account to build credit if needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated on Credit Card Offers</h2>
+                <p>Get alerts on new card promotions, limited-time offers, and expert advice on maximizing rewards.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>FinanceWise</h3>
+                    <p>Your trusted source for smart financial decisions. We provide unbiased advice to help you manage your money wisely.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Financial Topics</h4>
+                    <ul>
+                        <li><a href="credit-cards.html">Credit Cards</a></li>
+                        <li><a href="personal-banking.html">Banking</a></li>
+                        <li><a href="investing.html">Investing</a></li>
+                        <li><a href="insurance.html">Insurance</a></li>
+                        <li><a href="business-banking.html">Business</a></li>
+                        <li><a href="personal-finance.html">Personal Finance</a></li>
+                        <li><a href="debt-help.html">Debt Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Tools & Resources</h4>
+                    <ul>
+                        <li><a href="tools/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="tools/investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="tools/card-comparison.html">Credit Card Comparison</a></li>
+                        <li><a href="tools/savings-calculator.html">Savings Calculator</a></li>
+                        <li><a href="tools/budget-planner.html">Budget Planner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FinanceWise. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Page-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality for credit card table
+            const cardTypeSelect = document.getElementById('card-type');
+            const creditScoreSelect = document.getElementById('credit-score');
+            const annualFeeSelect = document.getElementById('annual-fee');
+            
+            // Add event listeners to filter elements
+            if (cardTypeSelect && creditScoreSelect && annualFeeSelect) {
+                cardTypeSelect.addEventListener('change', filterCards);
+                creditScoreSelect.addEventListener('change', filterCards);
+                annualFeeSelect.addEventListener('change', filterCards);
+            }
+            
+            function filterCards() {
+                // In a real implementation, this would filter the table rows based on selected values
+                console.log('Filtering cards with the following criteria:');
+                console.log('Card Type:', cardTypeSelect.value);
+                console.log('Credit Score:', creditScoreSelect.value);
+                console.log('Annual Fee:', annualFeeSelect.value);
+                
+                // Alert user that this is a demo
+                alert('This is a demo feature. In a complete implementation, the table would be filtered based on your selections.');
+            }
+        });
+    </script>
+</body>
+</html>

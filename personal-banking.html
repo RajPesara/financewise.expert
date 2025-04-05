@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Banking | FinanceWise Expert</title>
+    <meta name="description" content="Find the best checking accounts, savings accounts, and CDs with competitive rates, low fees, and exceptional features to help you manage your money wisely.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Page-specific styles */
+        .account-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .account-comparison th,
+        .account-comparison td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .account-comparison th {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .account-comparison tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .account-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: var(--accent-color);
+            color: var(--black);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            margin-right: 0.5rem;
+        }
+        
+        .account-tag.best {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .bank-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .category-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+        
+        .feature-description {
+            flex-grow: 1;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .feature-link {
+            align-self: flex-start;
+        }
+        
+        .rate-highlight {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .filter-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .filter-group select {
+            padding: 0.5rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        @media (max-width: 768px) {
+            .bank-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>FinanceWise Expert</h1>
+                    </a>
+                </div>
+                <div class="header-tools">
+                    <div class="search-form">
+                        <form>
+                            <input type="text" placeholder="Search for financial advice...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline">Log In</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li><a href="credit-cards.html">Credit Cards</a></li>
+                    <li><a href="personal-banking.html" class="active">Personal Banking</a></li>
+                    <li><a href="investing.html">Trading & Investing</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="business-banking.html">Business Banking</a></li>
+                    <li><a href="personal-finance.html">Personal Finance</a></li>
+                    <li><a href="debt-help.html">Getting Out of Debt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Personal Banking</h1>
+            <p>Find the best checking accounts, savings accounts, and CDs with competitive rates, low fees, and exceptional features to help you manage your money wisely.</p>
+        </div>
+    </section>
+
+    <!-- Bank Account Categories -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Bank Account Types</h2>
+            </div>
+            <div class="bank-categories">
+                <a href="#checking" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Checking Accounts</h3>
+                    <p>For everyday spending, direct deposits, and bill payments</p>
+                </a>
+                <a href="#savings" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Savings Accounts</h3>
+                    <p>For emergency funds, short-term goals, and earning interest</p>
+                </a>
+                <a href="#cds" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Certificates of Deposit</h3>
+                    <p>For guaranteed returns and medium-term savings goals</p>
+                </a>
+                <a href="#money-market" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Money Market Accounts</h3>
+                    <p>Combine features of checking and savings with higher interest</p>
+                </a>
+                <a href="#online-banking" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Online Banking</h3>
+                    <p>Digital-first banks offering competitive rates and low fees</p>
+                </a>
+                <a href="#credit-unions" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Credit Unions</h3>
+                    <p>Member-owned alternatives to traditional banks</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Rates Section -->
+    <section class="featured-rates">
+        <div class="container">
+            <div class="section-header">
+                <h2>Today's Top Banking Rates</h2>
+                <p>Updated: April 5, 2025</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="img/high-yield-savings.jpg" alt="High-Yield Savings">
+                    <h3 class="feature-title">High-Yield Savings Accounts</h3>
+                    <div class="rate-highlight">Up to 5.25% APY</div>
+                    <p class="feature-description">Earn significantly more interest than traditional savings accounts. Online banks typically offer the highest rates with no minimum balance requirements or monthly fees.</p>
+                    <a href="#savings" class="btn btn-primary feature-link">Compare Accounts</a>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="img/checking-account.jpg" alt="No-Fee Checking">
+                    <h3 class="feature-title">No-Fee Checking Accounts</h3>
+                    <div class="rate-highlight">Up to 4.15% APY</div>
+                    <p class="feature-description">Interest-bearing checking accounts with no monthly maintenance fees, no minimum balance requirements, and access to extensive ATM networks.</p>
+                    <a href="#checking" class="btn btn-primary feature-link">Compare Accounts</a>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="img/cd-rates.jpg" alt="CD Rates">
+                    <h3 class="feature-title">Certificate of Deposit Rates</h3>
+                    <div class="rate-highlight">Up to 5.50% APY</div>
+                    <p class="feature-description">Lock in high-interest rates for terms ranging from 3 months to 5 years. Perfect for saving toward specific goals with a guaranteed return.</p>
+                    <a href="#cds" class="btn btn-primary feature-link">Compare CDs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Checking Accounts Section -->
+    <section id="checking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best Checking Accounts of April 2025</h2>
+            </div>
+            
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="account-type">Account Type:</label>
+                    <select id="account-type">
+                        <option value="all">All Types</option>
+                        <option value="no-fee">No Monthly Fee</option>
+                        <option value="high-interest">High-Interest</option>
+                        <option value="student">Student</option>
+                        <option value="senior">Senior</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="bank-type">Bank Type:</label>
+                    <select id="bank-type">
+                        <option value="all">All Banks</option>
+                        <option value="online">Online Banks</option>
+                        <option value="traditional">Traditional Banks</option>
+                        <option value="credit-union">Credit Unions</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="min-deposit">Minimum Deposit:</label>
+                    <select id="min-deposit">
+                        <option value="all">Any</option>
+                        <option value="0">$0</option>
+                        <option value="25">Under $25</option>
+                        <option value="100">Under $100</option>
+                        <option value="500">Under $500</option>
+                    </select>
+                </div>
+            </div>
+            
+            <table class="account-comparison">
+                <thead>
+                    <tr>
+                        <th>Bank/Account</th>
+                        <th>APY</th>
+                        <th>Monthly Fee</th>
+                        <th>Minimum Opening Deposit</th>
+                        <th>ATM Access</th>
+                        <th>Special Features</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="account-tag best">Best Overall</span>
+                            <strong>SoFi Checking and Savings</strong>
+                            <p>SoFi Bank</p>
+                        </td>
+                        <td>0.50% on checking<br>3.80% on savings</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>55,000+ fee-free ATMs</td>
+                        <td>
+                            <ul>
+                                <li>Early direct deposit (up to 2 days)</li>
+                                <li>No overdraft fees</li>
+                                <li>Earn up to $300 bonus with direct deposit</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best Interest Rate</span>
+                            <strong>TAB Bank TAB Spend</strong>
+                            <p>TAB Bank</p>
+                        </td>
+                        <td>4.15%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>40,000+ MoneyPass ATMs</td>
+                        <td>
+                            <ul>
+                                <li>1% cash back on debit card purchases</li>
+                                <li>No minimum balance requirements</li>
+                                <li>Free online and mobile banking</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best for Cash Bonuses</span>
+                            <strong>Capital One 360 Checking</strong>
+                            <p>Capital One</p>
+                        </td>
+                        <td>0.10%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>70,000+ fee-free ATMs</td>
+                        <td>
+                            <ul>
+                                <li>$250 account opening bonus</li>
+                                <li>Physical branch access</li>
+                                <li>Overdraft protection options</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best for No Fees</span>
+                            <strong>Ally Bank Interest Checking</strong>
+                            <p>Ally Bank</p>
+                        </td>
+                        <td>0.25%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>Allpoint ATM network, up to $10/mo reimbursement</td>
+                        <td>
+                            <ul>
+                                <li>No overdraft fees</li>
+                                <li>Free checks</li>
+                                <li>24/7 customer support</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best for Students</span>
+                            <strong>Chase College Checking</strong>
+                            <p>Chase Bank</p>
+                        </td>
+                        <td>0.01%</td>
+                        <td>$0 for up to 5 years</td>
+                        <td>$0</td>
+                        <td>16,000+ Chase ATMs, 4,700+ branches</td>
+                        <td>
+                            <ul>
+                                <li>$100 new account bonus</li>
+                                <li>No monthly fee for college students</li>
+                                <li>Mobile check deposit</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="disclaimer">Rates and fees are accurate as of April 5, 2025. Terms and conditions may apply. Offers subject to change.</p>
+        </div>
+    </section>
+
+    <!-- Best Savings Accounts Section -->
+    <section id="savings">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best Savings Accounts of April 2025</h2>
+            </div>
+            
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="savings-type">Account Type:</label>
+                    <select id="savings-type">
+                        <option value="all">All Types</option>
+                        <option value="high-yield">High-Yield</option>
+                        <option value="traditional">Traditional</option>
+                        <option value="kids">Kids & Teens</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="savings-bank-type">Bank Type:</label>
+                    <select id="savings-bank-type">
+                        <option value="all">All Banks</option>
+                        <option value="online">Online Banks</option>
+                        <option value="traditional">Traditional Banks</option>
+                        <option value="credit-union">Credit Unions</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="savings-min-deposit">Minimum Deposit:</label>
+                    <select id="savings-min-deposit">
+                        <option value="all">Any</option>
+                        <option value="0">$0</option>
+                        <option value="25">Under $25</option>
+                        <option value="100">Under $100</option>
+                        <option value="500">Under $500</option>
+                    </select>
+                </div>
+            </div>
+            
+            <table class="account-comparison">
+                <thead>
+                    <tr>
+                        <th>Bank/Account</th>
+                        <th>APY</th>
+                        <th>Monthly Fee</th>
+                        <th>Minimum Opening Deposit</th>
+                        <th>Minimum Balance to Earn APY</th>
+                        <th>Special Features</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="account-tag best">Best Overall</span>
+                            <strong>Axos Bank High-Yield Savings</strong>
+                            <p>Axos Bank</p>
+                        </td>
+                        <td>4.66%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>
+                            <ul>
+                                <li>No minimum balance requirements</li>
+                                <li>No monthly maintenance fees</li>
+                                <li>Free ATM card available</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best Interest Rate</span>
+                            <strong>CFG Bank High Yield Money Market</strong>
+                            <p>CFG Bank</p>
+                        </td>
+                        <td>5.25%</td>
+                        <td>$0</td>
+                        <td>$1,000</td>
+                        <td>$1,000</td>
+                        <td>
+                            <ul>
+                                <li>Highest APY available</li>
+                                <li>No monthly fee with $1,000 balance</li>
+                                <li>FDIC insured</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best Big Bank Option</span>
+                            <strong>Discover Online Savings</strong>
+                            <p>Discover Bank</p>
+                        </td>
+                        <td>4.30%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>
+                            <ul>
+                                <li>24/7 U.S.-based customer service</li>
+                                <li>Highly rated mobile app</li>
+                                <li>Free transfers between banks</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best for No Minimum</span>
+                            <strong>Newtek Bank High Yield Savings</strong>
+                            <p>Newtek Bank</p>
+                        </td>
+                        <td>4.45%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$0.01</td>
+                        <td>
+                            <ul>
+                                <li>Just $0.01 to earn high interest rate</li>
+                                <li>No monthly fees</li>
+                                <li>Online account management</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best for Checking/Savings Combo</span>
+                            <strong>SoFi Checking and Savings</strong>
+                            <p>SoFi Bank</p>
+                        </td>
+                        <td>3.80%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>
+                            <ul>
+                                <li>Checking and savings in one account</li>
+                                <li>Up to $300 welcome bonus</li>
+                                <li>Automated savings features</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="disclaimer">APYs shown are current as of April 5, 2025. All rates are subject to change. Fees may reduce earnings.</p>
+        </div>
+    </section>
+
+    <!-- Best CDs Section -->
+    <section id="cds">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best CD Rates of April 2025</h2>
+            </div>
+            
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="cd-term">CD Term:</label>
+                    <select id="cd-term">
+                        <option value="all">All Terms</option>
+                        <option value="3-month">3 Month</option>
+                        <option value="6-month">6 Month</option>
+                        <option value="1-year">1 Year</option>
+                        <option value="3-year">3 Year</option>
+                        <option value="5-year">5 Year</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="cd-bank-type">Bank Type:</label>
+                    <select id="cd-bank-type">
+                        <option value="all">All Banks</option>
+                        <option value="online">Online Banks</option>
+                        <option value="traditional">Traditional Banks</option>
+                        <option value="credit-union">Credit Unions</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="cd-min-deposit">Minimum Deposit:</label>
+                    <select id="cd-min-deposit">
+                        <option value="all">Any</option>
+                        <option value="500">Under $500</option>
+                        <option value="1000">Under $1,000</option>
+                        <option value="5000">Under $5,000</option>
+                        <option value="10000">Under $10,000</option>
+                    </select>
+                </div>
+            </div>
+            
+            <table class="account-comparison">
+                <thead>
+                    <tr>
+                        <th>Bank/CD</th>
+                        <th>Term</th>
+                        <th>APY</th>
+                        <th>Minimum Deposit</th>
+                        <th>Early Withdrawal Penalty</th>
+                        <th>Special Features</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="account-tag best">Best Overall</span>
+                            <strong>Bread Savings™ CD</strong>
+                            <p>Bread Savings</p>
+                        </td>
+                        <td>1 Year</td>
+                        <td>5.20%</td>
+                        <td>$1,500</td>
+                        <td>180 days of interest</td>
+                        <td>
+                            <ul>
+                                <li>Among the highest rates available</li>
+                                <li>FDIC insured</li>
+                                <li>Interest compounds daily</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best 6-Month CD</span>
+                            <strong>TAB Bank CD</strong>
+                            <p>TAB Bank</p>
+                        </td>
+                        <td>6 Months</td>
+                        <td>5.26%</td>
+                        <td>$1,000</td>
+                        <td>90 days of interest</td>
+                        <td>
+                            <ul>
+                                <li>Top rate for 6-month term</li>
+                                <li>Automatic renewal available</li>
+                                <li>Interest compounds daily</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best 1-Year CD</span>
+                            <strong>Forbright Bank CD</strong>
+                            <p>Forbright Bank</p>
+                        </td>
+                        <td>1 Year</td>
+                        <td>5.50%</td>
+                        <td>$1,000</td>
+                        <td>90 days of interest</td>
+                        <td>
+                            <ul>
+								<li>Highest 1-year CD rate</li>
+                                <li>Interest compounds daily</li>
+                                <li>FDIC insured</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best 3-Year CD</span>
+                            <strong>Sallie Mae CD</strong>
+                            <p>Sallie Mae Bank</p>
+                        </td>
+                        <td>3 Years</td>
+                        <td>4.85%</td>
+                        <td>$2,500</td>
+                        <td>180 days of interest</td>
+                        <td>
+                            <ul>
+                                <li>Competitive long-term rate</li>
+                                <li>Interest compounds daily</li>
+                                <li>Automatic renewal available</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best for Low Minimum</span>
+                            <strong>Marcus by Goldman Sachs CD</strong>
+                            <p>Marcus by Goldman Sachs</p>
+                        </td>
+                        <td>1 Year</td>
+                        <td>5.10%</td>
+                        <td>$500</td>
+                        <td>270 days of interest</td>
+                        <td>
+                            <ul>
+                                <li>Lower minimum deposit requirement</li>
+                                <li>No-penalty CD options available</li>
+                                <li>10-day rate guarantee</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="disclaimer">APYs shown are current as of April 5, 2025. All rates are subject to change. Early withdrawal penalties may apply.</p>
+        </div>
+    </section>
+
+    <!-- Money Market Accounts Section -->
+    <section id="money-market">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best Money Market Accounts of April 2025</h2>
+            </div>
+            
+            <table class="account-comparison">
+                <thead>
+                    <tr>
+                        <th>Bank/Account</th>
+                        <th>APY</th>
+                        <th>Monthly Fee</th>
+                        <th>Minimum Opening Deposit</th>
+                        <th>Minimum Balance to Earn APY</th>
+                        <th>Special Features</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="account-tag best">Best Overall</span>
+                            <strong>UFB Secure Money Market</strong>
+                            <p>UFB Direct</p>
+                        </td>
+                        <td>5.25%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>
+                            <ul>
+                                <li>No minimum balance requirements</li>
+                                <li>Free ATM card available</li>
+                                <li>Check-writing privileges</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best for Large Balances</span>
+                            <strong>Ally Money Market Account</strong>
+                            <p>Ally Bank</p>
+                        </td>
+                        <td>4.15%</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>$0</td>
+                        <td>
+                            <ul>
+                                <li>Highly rated mobile app</li>
+                                <li>Free standard checks and debit card</li>
+                                <li>24/7 customer service</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="account-tag">Best Local Banking Option</span>
+                            <strong>Consumers Credit Union Money Market</strong>
+                            <p>Consumers Credit Union</p>
+                        </td>
+                        <td>4.25%</td>
+                        <td>$0</td>
+                        <td>$1,000</td>
+                        <td>$1,000</td>
+                        <td>
+                            <ul>
+                                <li>Access to physical branches</li>
+                                <li>Check-writing privileges</li>
+                                <li>Debit card access</li>
+                            </ul>
+                        </td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="disclaimer">APYs shown are current as of April 5, 2025. All rates are subject to change. Some banks may impose transaction limits.</p>
+        </div>
+    </section>
+
+    <!-- Online Banking Section -->
+    <section id="online-banking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best Online Banks of 2025</h2>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="img/online-bank-1.jpg" alt="Axos Bank">
+                    <h3 class="feature-title">Axos Bank</h3>
+                    <p class="feature-description">Founded in 2000, Axos Bank offers competitive interest rates on savings accounts and checking accounts with unlimited domestic ATM fee reimbursements. Their robust digital tools include personal financial management features.</p>
+                    <div class="feature-highlights">
+                        <span><i class="fas fa-check-circle"></i> High-yield savings: 4.66% APY</span>
+                        <span><i class="fas fa-check-circle"></i> Rewards checking: Up to 3.30% APY</span>
+                        <span><i class="fas fa-check-circle"></i> No monthly maintenance fees</span>
+                    </div>
+                    <a href="#" class="btn btn-outline feature-link">Learn More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="img/online-bank-2.jpg" alt="Ally Bank">
+                    <h3 class="feature-title">Ally Bank</h3>
+                    <p class="feature-description">Ally Bank consistently ranks high for customer satisfaction with a user-friendly mobile app, 24/7 customer service, and competitive rates on both checking and savings accounts with no monthly fees.</p>
+                    <div class="feature-highlights">
+                        <span><i class="fas fa-check-circle"></i> High-yield savings: 4.15% APY</span>
+                        <span><i class="fas fa-check-circle"></i> Interest checking: 0.25% APY</span>
+                        <span><i class="fas fa-check-circle"></i> Buckets feature for savings goals</span>
+                    </div>
+                    <a href="#" class="btn btn-outline feature-link">Learn More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="img/online-bank-3.jpg" alt="SoFi">
+                    <h3 class="feature-title">SoFi</h3>
+                    <p class="feature-description">SoFi offers a comprehensive banking experience with a combination checking and savings account that earns competitive interest rates, early direct deposit access, and no account fees.</p>
+                    <div class="feature-highlights">
+                        <span><i class="fas fa-check-circle"></i> Checking & savings: Up to 3.80% APY</span>
+                        <span><i class="fas fa-check-circle"></i> Up to $300 welcome bonus</span>
+                        <span><i class="fas fa-check-circle"></i> Automated savings features</span>
+                    </div>
+                    <a href="#" class="btn btn-outline feature-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banking Tips Section -->
+    <section class="banking-tips">
+        <div class="container">
+            <div class="section-header">
+                <h2>Smart Banking Strategies</h2>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="fas fa-piggy-bank"></i> Maximize Your Interest Earnings</h3>
+                    <p class="feature-description">
+                        With high-yield savings accounts offering rates up to 5.25% APY, you could be earning over 10 times more than with traditional bank accounts. On a $10,000 balance, that's the difference between earning $40 per year versus $525.
+                    </p>
+                    <a href="#" class="btn btn-outline feature-link">Read More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="fas fa-university"></i> Choose the Right Account Type</h3>
+                    <p class="feature-description">
+                        Different banking products serve different purposes. Use checking accounts for everyday expenses, high-yield savings for emergency funds, and CDs for medium-term goals where you won't need immediate access to funds.
+                    </p>
+                    <a href="#" class="btn btn-outline feature-link">Read More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="fas fa-shield-alt"></i> Avoid Unnecessary Fees</h3>
+                    <p class="feature-description">
+                        The average American pays $329 per year in bank fees. Look for accounts with no monthly maintenance fees, no minimum balance requirements, and fee-free ATM networks to keep more of your money.
+                    </p>
+                    <a href="#" class="btn btn-outline feature-link">Read More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="fas fa-chart-line"></i> Create a CD Ladder</h3>
+                    <p class="feature-description">
+                        A CD ladder strategy involves opening multiple CDs with staggered maturity dates. This approach provides regular access to a portion of your funds while still benefiting from the higher rates of longer-term CDs.
+                    </p>
+                    <a href="#" class="btn btn-outline feature-link">Read More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="fas fa-mobile-alt"></i> Embrace Online Banking</h3>
+                    <p class="feature-description">
+                        Online banks typically offer higher interest rates and lower fees than traditional brick-and-mortar banks. Mobile apps, electronic transfers, and remote check deposits provide convenient ways to manage your money anytime, anywhere.
+                    </p>
+                    <a href="#" class="btn btn-outline feature-link">Read More</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title"><i class="fas fa-sync-alt"></i> Set Up Automatic Transfers</h3>
+                    <p class="feature-description">
+                        Automating your savings is one of the most effective strategies for building wealth. Set up recurring transfers from checking to savings accounts on paydays to ensure consistent saving before you have a chance to spend.
+                    </p>
+                    <a href="#" class="btn btn-outline feature-link">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banking FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Common Banking Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>What's the difference between checking and savings accounts?</h3>
+                    <p>Checking accounts are designed for frequent transactions and everyday spending, typically offering unlimited withdrawals, debit cards, and check-writing abilities but minimal interest. Savings accounts are meant for storing money and earning interest, with some limitations on withdrawals and typically no check-writing capabilities.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How many bank accounts should I have?</h3>
+                    <p>Most financial experts recommend having at least two accounts: a checking account for bills and daily expenses and a savings account for emergency funds and short-term goals. Some people benefit from multiple savings accounts dedicated to specific goals or a combination of accounts at different institutions to maximize features and benefits.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Are online banks safe?</h3>
+                    <p>Yes, reputable online banks are equally as safe as traditional banks if they're FDIC-insured (for banks) or NCUA-insured (for credit unions), which protects deposits up to $250,000 per depositor, per institution. Online banks typically use advanced encryption and security measures to protect your personal and financial information.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What should I look for in a checking account?</h3>
+                    <p>The best checking accounts have no monthly maintenance fees (or easy ways to waive them), no minimum balance requirements, extensive fee-free ATM networks, mobile and online banking features, and potentially interest earnings or rewards on debit card purchases.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do CDs work?</h3>
+                    <p>Certificates of Deposit (CDs) are time deposits where you agree to leave your money in the account for a specific term (from 3 months to 5+ years) in exchange for a guaranteed interest rate. Typically, longer terms offer higher rates. If you withdraw funds before the CD matures, you'll usually face an early withdrawal penalty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated on Banking Rates</h2>
+                <p>Get weekly updates on the best rates, account features, and money-saving strategies delivered straight to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Financial Tools -->
+    <section class="related-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Related Financial Tools</h2>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Savings Calculator</h3>
+                    <p>See how your savings will grow over time with regular contributions.</p>
+                    <a href="tools/savings-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>CD Calculator</h3>
+                    <p>Compare CD rates and terms to maximize your interest earnings.</p>
+                    <a href="tools/cd-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Credit Card Comparison</h3>
+                    <p>Find the best credit card for your spending habits and goals.</p>
+                    <a href="tools/card-comparison.html" class="btn btn-outline">Compare Cards</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Budget Planner</h3>
+                    <p>Create a personalized budget based on your income and expenses.</p>
+                    <a href="tools/budget-planner.html" class="btn btn-outline">Plan Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>FinanceWise Expert</h3>
+                    <p>Your trusted source for smart financial decisions. We provide unbiased advice to help you manage your money wisely.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Financial Topics</h4>
+                    <ul>
+                        <li><a href="credit-cards.html">Credit Cards</a></li>
+                        <li><a href="personal-banking.html">Banking</a></li>
+                        <li><a href="investing.html">Investing</a></li>
+                        <li><a href="insurance.html">Insurance</a></li>
+                        <li><a href="business-banking.html">Business</a></li>
+                        <li><a href="personal-finance.html">Personal Finance</a></li>
+                        <li><a href="debt-help.html">Debt Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Tools & Resources</h4>
+                    <ul>
+                        <li><a href="tools/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="tools/investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="tools/card-comparison.html">Credit Card Comparison</a></li>
+                        <li><a href="tools/savings-calculator.html">Savings Calculator</a></li>
+                        <li><a href="tools/budget-planner.html">Budget Planner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FinanceWise Expert. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

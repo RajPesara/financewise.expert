@@ -1,0 +1,64 @@
+# robots.txt for FinanceWise
+# www.financewisenow.com
+
+User-agent: *
+Allow: /
+Disallow: /login.html
+Disallow: /signup.html
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /includes/
+Disallow: /temp/
+Disallow: /private/
+Disallow: /dev/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.php$
+Disallow: /*?*
+
+# No search result pages
+Disallow: /search/
+
+# No checkout or user account pages
+Disallow: /checkout/
+Disallow: /account/
+Disallow: /cart/
+Disallow: /my-profile/
+
+# Allow CSS and JavaScript
+Allow: /css/
+Allow: /js/
+
+# Allow Google Image to index images
+User-agent: Googlebot-Image
+Allow: /img/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.svg$
+
+# Allow Adsense bot
+User-agent: Mediapartners-Google
+Allow: /
+
+# Allow Google Mobile
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Block specific bots
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+# Crawl delay for Yahoo
+User-agent: Slurp
+Crawl-delay: 5
+
+# Sitemap locations
+Sitemap: https://www.financewisenow.com/sitemap.xml
+Sitemap: https://www.financewisenow.com/sitemap-articles.xml
+Sitemap: https://www.financewisenow.com/sitemap-tools.xml
+Sitemap: https://www.financewisenow.com/sitemap-categories.xml

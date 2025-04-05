@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investing & Trading | FinanceWise Expert</title>
+    <meta name="description" content="Learn how to start investing, compare brokerages, build a diversified portfolio, and plan for retirement with our expert guides and resources.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Page-specific styles */
+        .broker-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .broker-comparison th,
+        .broker-comparison td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .broker-comparison th {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .broker-comparison tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .broker-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: var(--accent-color);
+            color: var(--black);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            margin-right: 0.5rem;
+        }
+        
+        .broker-tag.best {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .investment-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .category-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .strategy-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .strategy-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .strategy-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+        
+        .strategy-description {
+            flex-grow: 1;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .strategy-metrics {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-md);
+            padding: var(--spacing-sm) 0;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .metric {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+        }
+        
+        .strategy-link {
+            align-self: flex-start;
+        }
+        
+        .portfolio-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .portfolio-info {
+            padding: var(--spacing-lg);
+        }
+        
+        .portfolio-viz {
+            padding: var(--spacing-lg);
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .investment-steps {
+            counter-reset: step-counter;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .step-item {
+            display: flex;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .step-number {
+            flex: 0 0 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: var(--spacing-md);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-top: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .investment-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .investment-option {
+            flex: 1 1 300px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .option-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .option-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            margin-right: var(--spacing-md);
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .option-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .option-details {
+            margin-top: var(--spacing-sm);
+        }
+        
+        .option-detail {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            margin-right: var(--spacing-sm);
+            min-width: 120px;
+        }
+        
+        .detail-value {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .investment-categories,
+            .portfolio-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>FinanceWise Expert</h1>
+                    </a>
+                </div>
+                <div class="header-tools">
+                    <div class="search-form">
+                        <form>
+                            <input type="text" placeholder="Search for financial advice...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline">Log In</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li><a href="credit-cards.html">Credit Cards</a></li>
+                    <li><a href="personal-banking.html">Personal Banking</a></li>
+                    <li><a href="investing.html" class="active">Trading & Investing</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="business-banking.html">Business Banking</a></li>
+                    <li><a href="personal-finance.html">Personal Finance</a></li>
+                    <li><a href="debt-help.html">Getting Out of Debt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+  			<h1>Trading & Investing</h1>
+            <p>Learn how to start investing, compare brokerages, build a diversified portfolio, and plan for retirement with our expert guides and resources.</p>
+        </div>
+    </section>
+
+    <!-- Investment Categories -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Investment Options</h2>
+            </div>
+            <div class="investment-categories">
+                <a href="#stocks" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Stocks</h3>
+                    <p>Build wealth by owning shares of publicly traded companies</p>
+                </a>
+                <a href="#etfs" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>ETFs</h3>
+                    <p>Diversify instantly with exchange-traded funds</p>
+                </a>
+                <a href="#mutual-funds" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Mutual Funds</h3>
+                    <p>Pool your money with other investors for professional management</p>
+                </a>
+                <a href="#bonds" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Bonds</h3>
+                    <p>Generate income and stability with fixed-income securities</p>
+                </a>
+                <a href="#retirement" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>Retirement Accounts</h3>
+                    <p>Tax-advantaged options for long-term investing goals</p>
+                </a>
+                <a href="#robo-advisors" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robo-Advisors</h3>
+                    <p>Automated investment management with minimal effort</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Start Investing Section -->
+    <section class="get-started">
+        <div class="container">
+            <div class="section-header">
+                <h2>How to Start Investing</h2>
+                <p>Follow these steps to begin your investment journey with confidence</p>
+            </div>
+            
+            <div class="investment-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Set Clear Financial Goals</h3>
+                        <p>Before investing, define what you're saving for and when you'll need the money. Short-term goals (under 3 years) require different strategies than long-term goals like retirement. Establishing specific, measurable goals helps determine your investment approach, risk tolerance, and asset allocation.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Build Your Emergency Fund First</h3>
+                        <p>Before investing in the market, establish an emergency fund covering 3-6 months of essential expenses. Keep this money in a high-yield savings account for immediate access. This financial cushion ensures you won't need to sell investments at a loss during market downturns if unexpected expenses arise.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Choose the Right Investment Account</h3>
+                        <p>Select an account type based on your goals. For retirement, prioritize tax-advantaged accounts like 401(k)s and IRAs. For non-retirement goals, consider taxable brokerage accounts. The account type determines tax treatment, contribution limits, and withdrawal rules, significantly impacting long-term returns.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Determine Your Asset Allocation</h3>
+                        <p>Decide how to divide your investments among stocks, bonds, and other asset classes based on your goals, time horizon, and risk tolerance. Typically, longer time horizons allow for higher stock allocations, while shorter goals require more conservative allocations with bonds and cash equivalents.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Select Your Investments</h3>
+                        <p>Choose specific investments that align with your asset allocation plan. For most beginning investors, low-cost index funds and ETFs provide instant diversification and professional management at minimal cost. As you gain experience, you might consider individual stocks, bonds, or specialized funds based on your strategy.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Automate Your Investments</h3>
+                        <p>Set up automatic transfers from your checking account to your investment accounts. Dollar-cost averaging through regular contributions helps reduce timing risk and builds discipline. Even small, consistent investments compound significantly over time, and automation eliminates emotional decision-making.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-container">
+                <a href="tools/investment-calculator.html" class="btn btn-primary">Try Our Investment Calculator</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Online Brokers Section -->
+    <section id="brokers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best Online Brokers of 2025</h2>
+            </div>
+            
+            <table class="broker-comparison">
+                <thead>
+                    <tr>
+                        <th>Broker</th>
+                        <th>Trading Costs</th>
+                        <th>Account Minimum</th>
+                        <th>Investment Options</th>
+                        <th>Platform & Tools</th>
+                        <th>Best For</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="broker-tag best">Best Overall</span>
+                            <strong>Fidelity</strong>
+                        </td>
+                        <td>$0 stock & ETF trades</td>
+                        <td>$0</td>
+                        <td>Stocks, bonds, ETFs, mutual funds, options, fractional shares</td>
+                        <td>
+                            <ul>
+                                <li>Advanced desktop platform</li>
+                                <li>Excellent mobile app</li>
+                                <li>Free research tools</li>
+                            </ul>
+                        </td>
+                        <td>All investors, particularly retirement savers</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="broker-tag">Best for Beginners</span>
+                            <strong>Charles Schwab</strong>
+                        </td>
+                        <td>$0 stock & ETF trades</td>
+                        <td>$0</td>
+                        <td>Stocks, bonds, ETFs, mutual funds, options, fractional shares (slices)</td>
+                        <td>
+                            <ul>
+                                <li>User-friendly interface</li>
+                                <li>Comprehensive educational resources</li>
+                                <li>24/7 customer support</li>
+                            </ul>
+                        </td>
+                        <td>Beginning investors, retirement savers</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="broker-tag">Best for Active Traders</span>
+                            <strong>Interactive Brokers</strong>
+                        </td>
+                        <td>$0 stock & ETF trades</td>
+                        <td>$0</td>
+                        <td>Stocks, bonds, ETFs, mutual funds, options, futures, forex, crypto</td>
+                        <td>
+                            <ul>
+                                <li>Professional trading platform</li>
+                                <li>Advanced order types</li>
+                                <li>Global market access</li>
+                            </ul>
+                        </td>
+                        <td>Active traders, sophisticated investors</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="broker-tag">Best Mobile Experience</span>
+                            <strong>Robinhood</strong>
+                        </td>
+                        <td>$0 stock & ETF trades</td>
+                        <td>$0</td>
+                        <td>Stocks, ETFs, options, crypto, fractional shares</td>
+                        <td>
+                            <ul>
+                                <li>Intuitive mobile interface</li>
+                                <li>Easy account setup</li>
+                                <li>Instant deposits</li>
+                            </ul>
+                        </td>
+                        <td>Mobile-first investors, beginners</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="broker-tag">Best for Research</span>
+                            <strong>E*TRADE</strong>
+                        </td>
+                        <td>$0 stock & ETF trades</td>
+                        <td>$0</td>
+                        <td>Stocks, bonds, ETFs, mutual funds, options, futures</td>
+                        <td>
+                            <ul>
+                                <li>Robust research tools</li>
+                                <li>Two trading platforms</li>
+                                <li>Excellent educational content</li>
+                            </ul>
+                        </td>
+                        <td>Intermediate investors, options traders</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="disclaimer">Broker features and pricing are accurate as of April 5, 2025. Terms and conditions may apply.</p>
+        </div>
+    </section>
+
+    <!-- Investment Strategies Section -->
+    <section id="strategies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Investment Strategies</h2>
+            </div>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <img src="img/index-investing.jpg" alt="Index Investing">
+                    <h3 class="strategy-title">Index Investing</h3>
+                    <p class="strategy-description">
+                        A passive investment approach that involves buying funds that track market indexes like the S&P 500. This strategy provides broad market exposure, low costs, and historically reliable long-term returns without the need to pick individual stocks or time the market.
+                    </p>
+                    <div class="strategy-metrics">
+                        <div class="metric">
+                            <div class="metric-value">Low</div>
+                            <div class="metric-label">Effort</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Low</div>
+                            <div class="metric-label">Cost</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Return</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline strategy-link">Learn More</a>
+                </div>
+                
+                <div class="strategy-card">
+                    <img src="img/dividend-investing.jpg" alt="Dividend Investing">
+                    <h3 class="strategy-title">Dividend Investing</h3>
+                    <p class="strategy-description">
+                        Focusing on stocks that pay regular dividends to generate income. This strategy typically targets established companies with strong cash flows and commitment to shareholder returns, providing both income and potential for capital appreciation over time.
+                    </p>
+                    <div class="strategy-metrics">
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Effort</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Low</div>
+                            <div class="metric-label">Cost</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Low-Med</div>
+                            <div class="metric-label">Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Return</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline strategy-link">Learn More</a>
+                </div>
+                
+                <div class="strategy-card">
+                    <img src="img/growth-investing.jpg" alt="Growth Investing">
+                    <h3 class="strategy-title">Growth Investing</h3>
+                    <p class="strategy-description">
+                        Investing in companies expected to grow sales and earnings faster than market averages. Growth investors typically focus on emerging industries, technological innovation, and companies reinvesting profits for expansion rather than paying dividends.
+                    </p>
+                    <div class="strategy-metrics">
+                        <div class="metric">
+                            <div class="metric-value">High</div>
+                            <div class="metric-label">Effort</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Cost</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">High</div>
+                            <div class="metric-label">Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">High</div>
+                            <div class="metric-label">Return</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline strategy-link">Learn More</a>
+                </div>
+                
+                <div class="strategy-card">
+                    <img src="img/value-investing.jpg" alt="Value Investing">
+                    <h3 class="strategy-title">Value Investing</h3>
+                    <p class="strategy-description">
+                        Seeking stocks trading below their intrinsic value based on fundamental analysis. Value investors look for companies with strong fundamentals but temporarily depressed prices, believing the market will eventually recognize their true worth.
+                    </p>
+                    <div class="strategy-metrics">
+                        <div class="metric">
+                            <div class="metric-value">High</div>
+                            <div class="metric-label">Effort</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Cost</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Return</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline strategy-link">Learn More</a>
+                </div>
+                
+                <div class="strategy-card">
+                    <img src="img/dollar-cost-averaging.jpg" alt="Dollar-Cost Averaging">
+                    <h3 class="strategy-title">Dollar-Cost Averaging</h3>
+                    <p class="strategy-description">
+                        Investing a fixed amount at regular intervals regardless of market conditions. This disciplined approach reduces the impact of market volatility and eliminates the need to time the market, making it ideal for long-term investors.
+                    </p>
+                    <div class="strategy-metrics">
+                        <div class="metric">
+                            <div class="metric-value">Low</div>
+                            <div class="metric-label">Effort</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Low</div>
+                            <div class="metric-label">Cost</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Return</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline strategy-link">Learn More</a>
+                </div>
+                
+                <div class="strategy-card">
+                    <img src="img/asset-allocation.jpg" alt="Asset Allocation">
+                    <h3 class="strategy-title">Asset Allocation</h3>
+                    <p class="strategy-description">
+                        Strategically dividing investments across different asset classes to optimize risk-adjusted returns. This approach is based on the principle that different assets perform differently in various market conditions, providing diversification benefits.
+                    </p>
+                    <div class="strategy-metrics">
+                        <div class="metric">
+                            <div class="metric-value">Medium</div>
+                            <div class="metric-label">Effort</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Low</div>
+                            <div class="metric-label">Cost</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Varies</div>
+                            <div class="metric-label">Risk</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Varies</div>
+                            <div class="metric-label">Return</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline strategy-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Portfolios Section -->
+    <section id="portfolios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sample Investment Portfolios</h2>
+                <p>Model portfolios for different risk tolerances and investment goals</p>
+            </div>
+            
+            <div class="portfolio-section">
+                <div class="portfolio-info">
+                    <h3>Conservative Portfolio</h3>
+                    <p><strong>Risk Level:</strong> Low</p>
+                    <p><strong>Time Horizon:</strong> 1-5 years</p>
+                    <p><strong>Ideal For:</strong> Investors nearing retirement or with short-term goals</p>
+                    <p><strong>Expected Annual Return:</strong> 3-5%</p>
+                    <p><strong>Description:</strong> This portfolio focuses on capital preservation and income generation through a heavier allocation to bonds and cash equivalents. The limited stock exposure helps provide some growth potential while maintaining overall stability.</p>
+                    <a href="#" class="btn btn-outline">See Recommended Funds</a>
+                </div>
+                <div class="portfolio-viz">
+                    <canvas id="conservative-chart" height="300"></canvas>
+                </div>
+            </div>
+            
+            <div class="portfolio-section">
+                <div class="portfolio-info">
+                    <h3>Moderate Portfolio</h3>
+                    <p><strong>Risk Level:</strong> Medium</p>
+                    <p><strong>Time Horizon:</strong> 5-10 years</p>
+                    <p><strong>Ideal For:</strong> Mid-career investors with balanced risk tolerance</p>
+                    <p><strong>Expected Annual Return:</strong> 5-7%</p>
+                    <p><strong>Description:</strong> This balanced portfolio offers a mix of growth and stability through roughly equal allocations to stocks and bonds. It aims to capture meaningful market growth while providing some downside protection during market corrections.</p>
+                    <a href="#" class="btn btn-outline">See Recommended Funds</a>
+                </div>
+                <div class="portfolio-viz">
+                    <canvas id="moderate-chart" height="300"></canvas>
+                </div>
+            </div>
+            
+            <div class="portfolio-section">
+                <div class="portfolio-info">
+                    <h3>Aggressive Portfolio</h3>
+                    <p><strong>Risk Level:</strong> High</p>
+                    <p><strong>Time Horizon:</strong> 10+ years</p>
+                    <p><strong>Ideal For:</strong> Young investors with long time horizons and high risk tolerance</p>
+                    <p><strong>Expected Annual Return:</strong> 7-10%</p>
+                    <p><strong>Description:</strong> This growth-oriented portfolio maximizes long-term returns through a heavy allocation to stocks, including international and emerging markets. The longer time horizon allows investors to weather market volatility in pursuit of higher returns.</p>
+                    <a href="#" class="btn btn-outline">See Recommended Funds</a>
+                </div>
+                <div class="portfolio-viz">
+                    <canvas id="aggressive-chart" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retirement Accounts Section -->
+    <section id="retirement">
+        <div class="container">
+            <div class="section-header">
+                <h2>Retirement Account Options</h2>
+                <p>Tax-advantaged accounts to help you save for retirement</p>
+            </div>
+            
+            <div class="investment-options">
+                <div class="investment-option">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="option-title">401(k) / 403(b)</div>
+                    </div>
+                    <p>Employer-sponsored retirement plans with tax advantages and potential employer matching contributions.</p>
+                    <div class="option-details">
+                        <div class="option-detail">
+                            <div class="detail-label">Contribution Limit (2025):</div>
+                            <div class="detail-value">$23,500 ($30,500 if 50+)</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Tax Benefits:</div>
+                            <div class="detail-value">Pre-tax contributions, tax-deferred growth</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Best For:</div>
+                            <div class="detail-value">Employees with matching contributions available</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Withdrawal Rules:</div>
+                            <div class="detail-value">Penalties for withdrawals before age 59½ with some exceptions</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+                
+                <div class="investment-option">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="option-title">Traditional IRA</div>
+                    </div>
+                    <p>Individual retirement account with tax-deductible contributions and tax-deferred growth.</p>
+                    <div class="option-details">
+                        <div class="option-detail">
+                            <div class="detail-label">Contribution Limit (2025):</div>
+                            <div class="detail-value">$7,000 ($8,000 if 50+)</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Tax Benefits:</div>
+                            <div class="detail-value">Potentially deductible contributions, tax-deferred growth</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Best For:</div>
+                            <div class="detail-value">Those expecting lower tax rates in retirement</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Withdrawal Rules:</div>
+                            <div class="detail-value">Required minimum distributions at age 73</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+                
+                <div class="investment-option">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="option-title">Roth IRA</div>
+                    </div>
+                    <p>Individual retirement account with after-tax contributions and tax-free growth and withdrawals.</p>
+                    <div class="option-details">
+                        <div class="option-detail">
+                            <div class="detail-label">Contribution Limit (2025):</div>
+                            <div class="detail-value">$7,000 ($8,000 if 50+)</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Tax Benefits:</div>
+                            <div class="detail-value">Tax-free growth and qualified withdrawals</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Best For:</div>
+                            <div class="detail-value">Those expecting higher tax rates in retirement</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Withdrawal Rules:</div>
+                            <div class="detail-value">Tax-free withdrawals of contributions anytime</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+                
+                <div class="investment-option">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="option-title">Health Savings Account (HSA)</div>
+                    </div>
+                    <p>Triple tax-advantaged account for healthcare expenses that can function as an additional retirement account.</p>
+                    <div class="option-details">
+                        <div class="option-detail">
+                            <div class="detail-label">Contribution Limit (2025):</div>
+                            <div class="detail-value">$4,150 individual / $8,300 family</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Tax Benefits:</div>
+                            <div class="detail-value">Pre-tax contributions, tax-free growth and withdrawals for qualified expenses</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Best For:</div>
+                            <div class="detail-value">Those with high-deductible health plans</div>
+                        </div>
+                        <div class="option-detail">
+                            <div class="detail-label">Withdrawal Rules:</div>
+                            <div class="detail-value">Tax-free for qualified medical expenses; penalty-free for any purpose after age 65</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Robo-Advisors Section -->
+    <section id="robo-advisors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Best Robo-Advisors of 2025</h2>
+                <p>Automated investment management services for hands-off investors</p>
+            </div>
+            
+            <table class="broker-comparison">
+                <thead>
+                    <tr>
+                        <th>Robo-Advisor</th>
+                        <th>Management Fee</th>
+                        <th>Account Minimum</th>
+                        <th>Investment Options</th>
+                        <th>Special Features</th>
+                        <th>Best For</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="broker-tag best">Best Overall</span>
+                            <strong>Betterment</strong>
+                        </td>
+                        <td>0.25% - 0.40%</td>
+                        <td>$0</td>
+                        <td>ETF portfolios, crypto portfolios</td>
+                        <td>
+                            <ul>
+                                <li>Tax-loss harvesting</li>
+                                <li>Automatic rebalancing</li>
+                                <li>Socially responsible options</li>
+                            </ul>
+                        </td>
+                        <td>Beginning investors, goal-based planning</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="broker-tag">Best for Low Costs</span>
+                            <strong>Wealthfront</strong>
+                        </td>
+                        <td>0.25%</td>
+                        <td>$500</td>
+                        <td>ETF portfolios, risk parity fund</td>
+                        <td>
+                            <ul>
+                                <li>Tax-loss harvesting</li>
+                                <li>Direct indexing (accounts $100k+)</li>
+                                <li>Cash management account</li>
+                            </ul>
+                        </td>
+                        <td>Tax optimization, hands-off investors</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <span class="broker-tag">Best for High Account Balances</span>
+                            <strong>Vanguard Digital Advisor</strong>
+                        </td>
+                        <td>0.20%</td>
+                        <td>$3,000</td>
+                        <td>Vanguard ETF portfolios</td>
+                        <td>
+                            <ul>
+                                <li>Tax-efficient investing</li>
+                                <li>Automatic rebalancing</li>
+                                <li>Integration with Vanguard accounts</li>
+                            </ul>
+                        </td>
+                        <td>Long-term investors, Vanguard customers</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="broker-tag">Best for Human Advice</span>
+                            <strong>Schwab Intelligent Portfolios Premium</strong>
+                        </td>
+                        <td>$30/month + $300 setup (no % fee)</td>
+                        <td>$25,000</td>
+                        <td>ETF portfolios</td>
+                        <td>
+                            <ul>
+                                <li>CFP professional guidance</li>
+                                <li>Comprehensive financial plan</li>
+                                <li>Unlimited 1:1 meetings</li>
+                            </ul>
+                        </td>
+                        <td>Investors wanting hybrid robo/human advice</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="broker-tag">Best for Customization</span>
+                            <strong>M1 Finance</strong>
+                        </td>
+                        <td>0% (basic), 0.25% (premium)</td>
+                        <td>$100</td>
+                        <td>Stocks, ETFs, custom "pies"</td>
+                        <td>
+                            <ul>
+                                <li>Fully customizable portfolios</li>
+                                <li>Fractional shares</li>
+                                <li>Integrated banking features</li>
+                            </ul>
+                        </td>
+                        <td>DIY investors wanting automation</td>
+                        <td><a href="#" class="btn btn-outline btn-sm">Open Account</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="disclaimer">Robo-advisor features and pricing are accurate as of April 5, 2025. Terms and conditions may apply.</p>
+        </div>
+    </section>
+
+    <!-- Investment FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Common Investing Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How much money do I need to start investing?</h3>
+                    <p>You can start investing with as little as $1 with brokers offering fractional shares. Many robo-advisors have low or no minimums, and some ETFs trade for less than $50 per share. The key is starting early with whatever amount you can afford to invest regularly, as compound growth significantly benefits long-term investors.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Should I pay off debt before investing?</h3>
+                    <p>It depends on the type of debt and interest rate. Generally, high-interest debt (like credit cards) should be paid off before investing since market returns typically won't exceed those interest rates. However, low-interest debt (like mortgages) can often be carried while investing, especially when you have access to tax-advantaged accounts like 401(k)s with employer matching.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What's the difference between stocks, ETFs, and mutual funds?</h3>
+                    <p>Stocks represent ownership in individual companies. ETFs (Exchange-Traded Funds) are baskets of securities that trade like stocks throughout the day and typically track indices. Mutual funds also pool money to invest in securities but trade only once daily at the market close. ETFs generally have lower expense ratios and minimum investments than mutual funds but both offer instant diversification compared to individual stocks.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do I choose between a Roth and Traditional IRA?</h3>
+                    <p>The main difference is tax treatment. Traditional IRAs offer tax-deductible contributions with taxes paid on withdrawals in retirement. Roth IRAs use after-tax contributions but provide tax-free withdrawals in retirement. Generally, choose a Roth if you expect to be in a higher tax bracket in retirement, and a Traditional IRA if you expect to be in a lower bracket. Younger investors often benefit more from Roths due to longer tax-free growth periods.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What's a good asset allocation for my age?</h3>
+                    <p>A traditional rule of thumb is to subtract your age from 110 to determine your stock percentage (e.g., a 30-year-old would have 80% in stocks, 20% in bonds). However, this varies based on risk tolerance, goals, and time horizon. Younger investors can generally take more risk with higher stock allocations, while those nearing retirement typically shift toward more conservative allocations with higher bond percentages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get Investment Insights in Your Inbox</h2>
+                <p>Join 100,000+ investors who receive our market analysis, investing strategies, and portfolio optimization tips each week.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Financial Tools -->
+    <section class="related-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Related Financial Tools</h2>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Investment Calculator</h3>
+                    <p>Project your investment growth based on contributions and returns.</p>
+                    <a href="tools/investment-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Retirement Calculator</h3>
+                    <p>See if you're on track to meet your retirement savings goals.</p>
+                    <a href="tools/retirement-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>401(k) Calculator</h3>
+                    <p>Estimate your 401(k) growth and optimize contributions.</p>
+                    <a href="tools/401k-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Asset Allocation Tool</h3>
+                    <p>Determine the optimal mix of investments for your goals.</p>
+                    <a href="tools/asset-allocation.html" class="btn btn-outline">Plan Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>FinanceWise Expert</h3>
+                    <p>Your trusted source for smart financial decisions. We provide unbiased advice to help you manage your money wisely.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Financial Topics</h4>
+                    <ul>
+                        <li><a href="credit-cards.html">Credit Cards</a></li>
+                        <li><a href="personal-banking.html">Banking</a></li>
+                        <li><a href="investing.html">Investing</a></li>
+                        <li><a href="insurance.html">Insurance</a></li>
+                        <li><a href="business-banking.html">Business</a></li>
+                        <li><a href="personal-finance.html">Personal Finance</a></li>
+                        <li><a href="debt-help.html">Debt Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Tools & Resources</h4>
+                    <ul>
+                        <li><a href="tools/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="tools/investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="tools/card-comparison.html">Credit Card Comparison</a></li>
+                        <li><a href="tools/savings-calculator.html">Savings Calculator</a></li>
+                        <li><a href="tools/budget-planner.html">Budget Planner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FinanceWise Expert. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Initialize portfolio charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Conservative Portfolio Chart
+            const conservativeCtx = document.getElementById('conservative-chart').getContext('2d');
+            const conservativeChart = new Chart(conservativeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Bonds', 'Stocks', 'Cash & Equivalents', 'Alternative Investments'],
+                    datasets: [{
+                        data: [60, 25, 10, 5],
+                        backgroundColor: [
+                            '#4C72B0',
+                            '#55A868',
+                            '#C44E52',
+                            '#8172B3'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Moderate Portfolio Chart
+            const moderateCtx = document.getElementById('moderate-chart').getContext('2d');
+            const moderateChart = new Chart(moderateCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Bonds', 'Stocks', 'Cash & Equivalents', 'Alternative Investments'],
+                    datasets: [{
+                        data: [40, 50, 5, 5],
+                        backgroundColor: [
+                            '#4C72B0',
+                            '#55A868',
+                            '#C44E52',
+                            '#8172B3'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Aggressive Portfolio Chart
+            const aggressiveCtx = document.getElementById('aggressive-chart').getContext('2d');
+            const aggressiveChart = new Chart(aggressiveCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Bonds', 'Stocks', 'Cash & Equivalents', 'Alternative Investments'],
+                    datasets: [{
+                        data: [15, 75, 0, 10],
+                        backgroundColor: [
+                            '#4C72B0',
+                            '#55A868',
+                            '#C44E52',
+                            '#8172B3'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#0056b3"/>
+  
+  <!-- Letter F stylized -->
+  <path d="M18 12h28v8H26v8h16v8H26v16h-8V12z" fill="white"/>
+  
+  <!-- Dollar sign -->
+  <path d="M42 22c0-2.2-1.8-4-4-4h-4c-1.1 0-2 0.9-2 2v4c0 1.1 0.9 2 2 2h4c1.1 0 2 0.9 2 2v4c0 1.1-0.9 2-2 2h-4c-1.1 0-2-0.9-2-2" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+  
+  <!-- Vertical line of dollar sign -->
+  <line x1="36" y1="16" x2="36" y2="12" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <line x1="36" y1="38" x2="36" y2="42" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>

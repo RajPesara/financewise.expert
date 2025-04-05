@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Out of Debt | FinanceWise Expert</title>
+    <meta name="description" content="Learn effective strategies to pay off debt, improve your credit score, and regain financial freedom with expert advice and tools for managing all types of debt.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Page-specific styles */
+        .debt-strategies {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .strategy-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .strategy-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .strategy-title i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: var(--spacing-sm);
+        }
+        
+        .strategy-title h3 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        
+        .strategy-details {
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1;
+        }
+        
+        .strategy-comparison {
+            display: flex;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .strategy-pros,
+        .strategy-cons {
+            flex: 1;
+        }
+        
+        .strategy-pros h4,
+        .strategy-cons h4 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .strategy-pros ul,
+        .strategy-cons ul {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+        
+        .strategy-pros ul li,
+        .strategy-cons ul li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .strategy-pros h4 {
+            color: #28a745;
+        }
+        
+        .strategy-cons h4 {
+            color: #dc3545;
+        }
+        
+        .debt-calculator {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .debt-calculator-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .debt-input-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .debt-input-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+        
+        .debt-input-group input,
+        .debt-input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            background-color: var(--white);
+        }
+        
+        .calculator-results {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .result-row:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-weight: 600;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .success-stories {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .story-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: var(--spacing-md);
+        }
+        
+        .story-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .story-info h3 {
+            margin: 0 0 var(--spacing-xs) 0;
+            font-size: 1.25rem;
+        }
+        
+        .story-info p {
+            margin: 0;
+            color: var(--medium-gray);
+        }
+        
+        .story-quote {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .story-quote::before,
+        .story-quote::after {
+            content: '"';
+            font-size: 2rem;
+            font-family: Georgia, serif;
+            position: absolute;
+            color: var(--light-gray);
+        }
+        
+        .story-quote::before {
+            left: 0;
+            top: -10px;
+        }
+        
+        .story-quote::after {
+            right: 0;
+            bottom: -30px;
+        }
+        
+        .story-metrics {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .metric {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+        }
+        
+        .story-details {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .debt-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .debt-type-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .debt-type-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .debt-type-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .debt-step-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .debt-steps {
+            counter-reset: step-counter;
+        }
+        
+        .debt-step {
+            display: flex;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .step-number {
+            flex: 0 0 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: var(--spacing-md);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-top: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .debt-relief-options {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .relief-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .relief-comparison th,
+        .relief-comparison td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .relief-comparison th {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .relief-comparison tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .impact-meter {
+            display: flex;
+            align-items: center;
+        }
+        
+        .impact-dots {
+            display: flex;
+            gap: 2px;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+        }
+        
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+        
+        .impact-text {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .debt-strategies {
+                grid-template-columns: 1fr;
+            }
+            
+            .debt-calculator-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategy-comparison {
+                flex-direction: column;
+            }
+            
+            .strategy-pros,
+            .strategy-cons {
+                margin-bottom: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>FinanceWise Expert</h1>
+                    </a>
+                </div>
+                <div class="header-tools">
+                    <div class="search-form">
+                        <form>
+                            <input type="text" placeholder="Search for financial advice...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="user-actions">
+                        <a href="login.html" class="btn btn-outline">Log In</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li><a href="credit-cards.html">Credit Cards</a></li>
+                    <li><a href="personal-banking.html">Personal Banking</a></li>
+                    <li><a href="investing.html">Trading & Investing</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="business-banking.html">Business Banking</a></li>
+                    <li><a href="personal-finance.html">Personal Finance</a></li>
+                    <li><a href="debt-help.html" class="active">Getting Out of Debt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Getting Out of Debt</h1>
+            <p>Learn effective strategies to pay off debt, improve your credit score, and regain financial freedom with expert advice and tools.</p>
+        </div>
+    </section>
+
+    <!-- Debt Strategies Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Proven Debt Payoff Strategies</h2>
+                <p>Choose the approach that works best for your financial situation and personality</p>
+            </div>
+            
+            <div class="debt-strategies">
+                <div class="strategy-card">
+                    <div class="strategy-title">
+                        <i class="fas fa-snowball"></i>
+                        <h3>Debt Snowball Method</h3>
+                    </div>
+                    <div class="strategy-details">
+                        <p>The debt snowball method focuses on building momentum by paying off your smallest debts first, regardless of interest rate. Once the smallest debt is paid off, you roll that payment into the next smallest debt, creating a "snowball" effect.</p>
+                    </div>
+                    <div class="strategy-comparison">
+                        <div class="strategy-pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Creates quick wins for psychological momentum</li>
+                                <li>Simple to understand and implement</li>
+                                <li>May increase motivation to continue</li>
+                                <li>Reduces number of monthly payments faster</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>May pay more interest overall</li>
+                                <li>High-interest debts continue to accumulate</li>
+                                <li>Potentially longer time to debt freedom</li>
+                                <li>Less mathematically efficient</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-title">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Debt Avalanche Method</h3>
+                    </div>
+                    <div class="strategy-details">
+                        <p>The debt avalanche method prioritizes paying off debts with the highest interest rates first. By targeting high-interest debt, you minimize the total interest paid and potentially become debt-free faster than with other methods.</p>
+                    </div>
+                    <div class="strategy-comparison">
+                        <div class="strategy-pros">
+                            <h4>Pros</h4>
