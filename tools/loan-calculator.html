@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator | FinanceWise</title>
+    <meta name="description" content="Calculate monthly payments, total interest, and amortization schedules for any loan with our free loan calculator. Plan your financial future with confidence.">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../img/favicon.ico">
+    <style>
+        /* Page-specific styles */
+        .calculator-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .calculator-inputs {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+        }
+        
+        .calculator-results {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+        }
+        
+        .input-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+        
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        .input-group .range-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .input-group input[type="range"] {
+            width: 100%;
+            margin-top: var(--spacing-xs);
+        }
+        
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            margin-top: var(--spacing-md);
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .result-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .amortization-table {
+            width: 100%;
+            margin-top: var(--spacing-lg);
+            border-collapse: collapse;
+        }
+        
+        .amortization-table th,
+        .amortization-table td {
+            padding: var(--spacing-sm);
+            text-align: right;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .amortization-table th {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .amortization-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .loan-tips {
+            margin-top: var(--spacing-xl);
+        }
+        
+        .tip-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .tip-card h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+        
+        .tip-card h3 i {
+            font-size: 1.25rem;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>FinanceWise</h1>
+                    </a>
+                </div>
+                <div class="header-tools">
+                    <div class="search-form">
+                        <form>
+                            <input type="text" placeholder="Search for financial advice...">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="user-actions">
+                        <a href="../login.html" class="btn btn-outline">Log In</a>
+                        <a href="../signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li><a href="../credit-cards.html">Credit Cards</a></li>
+                    <li><a href="../personal-banking.html">Personal Banking</a></li>
+                    <li><a href="../investing.html">Trading & Investing</a></li>
+                    <li><a href="../insurance.html">Insurance</a></li>
+                    <li><a href="../business-banking.html">Business Banking</a></li>
+                    <li><a href="../personal-finance.html">Personal Finance</a></li>
+                    <li><a href="../debt-help.html">Getting Out of Debt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Loan Calculator</h1>
+            <p>Calculate monthly payments, total interest costs, and view complete amortization schedules for any loan.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Tool -->
+    <section>
+        <div class="container">
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <h2>Loan Details</h2>
+                    <p>Enter your loan information to calculate payments and view your amortization schedule.</p>
+                    
+                    <div class="input-group">
+                        <label for="loan-amount">Loan Amount ($)</label>
+                        <input type="number" id="loan-amount" min="1000" max="1000000" value="250000" step="1000">
+                        <div class="range-container">
+                            <input type="range" id="loan-amount-range" min="1000" max="1000000" value="250000" step="1000">
+                            <div class="range-labels">
+                                <span>$1,000</span>
+                                <span>$1,000,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="interest-rate">Interest Rate (%)</label>
+                        <input type="number" id="interest-rate" min="0.1" max="25" value="5.25" step="0.05">
+                        <div class="range-container">
+                            <input type="range" id="interest-rate-range" min="0.1" max="25" value="5.25" step="0.05">
+                            <div class="range-labels">
+                                <span>0.1%</span>
+                                <span>25%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="loan-term">Loan Term (Years)</label>
+                        <select id="loan-term">
+                            <option value="5">5 years</option>
+                            <option value="10">10 years</option>
+                            <option value="15">15 years</option>
+                            <option value="20">20 years</option>
+                            <option value="25">25 years</option>
+                            <option value="30" selected>30 years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="payment-frequency">Payment Frequency</label>
+                        <select id="payment-frequency">
+                            <option value="12" selected>Monthly</option>
+                            <option value="26">Bi-weekly</option>
+                            <option value="52">Weekly</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="start-date">Start Date</label>
+                        <input type="date" id="start-date" value="2025-04-01">
+                    </div>
+                    
+                    <button id="calculate-btn" class="btn btn-primary calculate-btn">Calculate</button>
+                </div>
+                
+                <div class="calculator-results">
+                    <h2>Results</h2>
+                    <p>Based on your inputs, here's a breakdown of your loan repayment.</p>
+                    
+                    <div class="result-card">
+                        <div class="result-title">Monthly Payment</div>
+                        <div class="result-value" id="monthly-payment">$1,380.51</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-title">Total Principal</div>
+                        <div class="result-value" id="total-principal">$250,000.00</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-title">Total Interest</div>
+                        <div class="result-value" id="total-interest">$246,984.99</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-title">Total Cost of Loan</div>
+                        <div class="result-value" id="total-cost">$496,984.99</div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="payment-chart"></canvas>
+                    </div>
+                    
+                    <div class="loan-term-summary" id="loan-term-summary">
+                        <p>Your loan will be paid off on <strong>April 1, 2055</strong>.</p>
+                        <p>You will make <strong>360</strong> payments in total.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="amortization-section">
+                <h2>Amortization Schedule</h2>
+                <p>View your complete payment schedule over the life of the loan.</p>
+                
+                <div class="table-container">
+                    <table class="amortization-table" id="amortization-table">
+                        <thead>
+                            <tr>
+                                <th>Payment #</th>
+                                <th>Date</th>
+                                <th>Payment</th>
+                                <th>Principal</th>
+                                <th>Interest</th>
+                                <th>Remaining Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5/1/2025</td>
+                                <td>$1,380.51</td>
+                                <td>$489.26</td>
+                                <td>$891.25</td>
+                                <td>$249,510.74</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>6/1/2025</td>
+                                <td>$1,380.51</td>
+                                <td>$491.00</td>
+                                <td>$889.51</td>
+                                <td>$249,019.74</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>7/1/2025</td>
+                                <td>$1,380.51</td>
+                                <td>$492.76</td>
+                                <td>$887.75</td>
+                                <td>$248,526.98</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>8/1/2025</td>
+                                <td>$1,380.51</td>
+                                <td>$494.51</td>
+                                <td>$886.00</td>
+                                <td>$248,032.47</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>9/1/2025</td>
+                                <td>$1,380.51</td>
+                                <td>$496.28</td>
+                                <td>$884.23</td>
+                                <td>$247,536.19</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" class="table-note">Showing first 5 payments. Full schedule would show all payments.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="loan-tips">
+                <h2>Loan Tips & Strategies</h2>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-bolt"></i> Make Extra Payments</h3>
+                    <p>Adding just $100 extra to your monthly payment can save thousands in interest and shorten your loan term by years. On a $250,000 30-year loan at 5.25%, you could save over $35,000 in interest and pay off your loan nearly 5 years early.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Consider Refinancing</h3>
+                    <p>If interest rates drop by at least 0.5% below your current rate, it might be worth exploring refinancing options. Just make sure the savings on interest outweigh the closing costs and fees associated with refinancing.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Bi-weekly Payments</h3>
+                    <p>By switching from monthly to bi-weekly payments, you'll make 26 half-payments per year (equivalent to 13 monthly payments instead of 12). This simple change can save you thousands in interest and reduce your loan term by several years.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-percentage"></i> Points vs. Rate</h3>
+                    <p>When getting a new loan, evaluate whether paying points to lower your interest rate makes financial sense. Generally, if you plan to keep the loan for more than 5-7 years, paying points to reduce your rate can be beneficial in the long run.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Financial Tools -->
+    <section class="related-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Related Financial Tools</h2>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Mortgage Calculator</h3>
+                    <p>Calculate mortgage payments, including taxes and insurance.</p>
+                    <a href="mortgage-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Auto Loan Calculator</h3>
+                    <p>Estimate monthly payments and total costs for auto financing.</p>
+                    <a href="auto-loan-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Student Loan Calculator</h3>
+                    <p>Plan your student loan repayment strategy and timeline.</p>
+                    <a href="student-loan-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Savings Calculator</h3>
+                    <p>See how your savings will grow with regular contributions.</p>
+                    <a href="savings-calculator.html" class="btn btn-outline">Calculate Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get Financial Tips in Your Inbox</h2>
+                <p>Join 100,000+ readers who receive our best financial advice, tools, and tips each week.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>FinanceWise</h3>
+                    <p>Your trusted source for smart financial decisions. We provide unbiased advice to help you manage your money wisely.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Financial Topics</h4>
+                    <ul>
+                        <li><a href="../credit-cards.html">Credit Cards</a></li>
+                        <li><a href="../personal-banking.html">Banking</a></li>
+                        <li><a href="../investing.html">Investing</a></li>
+                        <li><a href="../insurance.html">Insurance</a></li>
+                        <li><a href="../business-banking.html">Business</a></li>
+                        <li><a href="../personal-finance.html">Personal Finance</a></li>
+                        <li><a href="../debt-help.html">Debt Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Tools & Resources</h4>
+                    <ul>
+                        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="card-comparison.html">Credit Card Comparison</a></li>
+                        <li><a href="savings-calculator.html">Savings Calculator</a></li>
+                        <li><a href="budget-planner.html">Budget Planner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../team.html">Our Team</a></li>
+                        <li><a href="../careers.html">Careers</a></li>
+                        <li><a href="../press.html">Press</a></li>
+                        <li><a href="../contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FinanceWise. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="../privacy.html">Privacy Policy</a></li>
+                    <li><a href="../terms.html">Terms of Service</a></li>
+                    <li><a href="../disclaimer.html">Disclaimer</a></li>
+                    <li><a href="../sitemap.html">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="../js/loan-calculator.js"></script>
+</body>
+</html>
